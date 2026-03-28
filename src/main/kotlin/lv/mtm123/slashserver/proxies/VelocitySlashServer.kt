@@ -13,7 +13,7 @@ import java.io.File
 @Plugin(
     id = "slashserver",
     name = "SlashServer",
-    version = "@version@",
+    version = "1.2.0-SNAPSHOT",
     description = "Allows to use /<servername>",
     authors = ["MTM123"]
 )
