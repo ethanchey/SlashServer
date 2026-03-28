@@ -11,7 +11,7 @@ import java.nio.file.Paths
 class Config {
 
     @Setting
-    val servers = listOf(ServerEntry())
+    var servers = listOf(ServerEntry())
 
     companion object {
         fun loadConfig(pluginFolder: File): Config {
@@ -34,6 +34,21 @@ class Config {
             loader.save(ConfigTransform.update(node))
 
             return config
+        }
+
+        fun reloadConfig(pluginFolder: File, existingConfig: Config) {
+            val path = Paths.get(pluginFolder.path, "config.yml")
+            if (!path.toFile().exists()) return
+
+            val loader = YamlConfigurationLoader.builder()
+                .path(path)
+                .nodeStyle(NodeStyle.BLOCK)
+                .build()
+
+            val node = loader.load()
+            val newConfig = node.get(Config::class.java)!!
+            
+            existingConfig.servers = newConfig.servers
         }
     }
 
