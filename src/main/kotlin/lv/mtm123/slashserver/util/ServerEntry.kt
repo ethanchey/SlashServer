@@ -15,4 +15,7 @@ class ServerEntry {
     @Setting
     val permission = "slashserver.server.lobby"
 
+    @Setting
+    val disabledServers = emptyList<String>()
+
 }
