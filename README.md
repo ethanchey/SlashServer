@@ -1,5 +1,7 @@
 # SlashServer
 
+Note to future readers: this plugin is compatible with Velocity as of June 2nd.
+
 Allows your players to use `/<servername>` command to switch subservers instead of `/server <servername>`
 
 ## Links and support
